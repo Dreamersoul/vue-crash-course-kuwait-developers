@@ -1,8 +1,13 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h1>{{ capitalizedMsg }}</h1>
-    <input type="text" v-model="msg" />
+    <span v-if="seen">Now you see me</span>
+    <span v-else>Now you can’t</span>
+
+    <ol>
+      <li v-for="todo in todos">
+        {{ todo.text }}
+      </li>
+    </ol>
   </div>
 </template>
 
@@ -11,30 +16,32 @@ export default {
   name: 'HelloWorld',
   data: function(){
     return {
-      msg: ""
+      seen: true,
+      todos:[
+        {text: "todo No. 1"},
+        {text: "todo No. 2"},
+        {text: "todo No. 3"},
+      ]
     }
   },
-  computed: {
-    capitalizedMsg(){
-      return this.msg.toUpperCase();
-    }
-  }
 }
 </script>
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.hello {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+  
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+ol {
+  padding: 0px;
+  list-style-position: inside;
 }
 li {
-  display: inline-block;
   margin: 0 10px;
-}
-a {
-  color: #42b983;
 }
 </style>
