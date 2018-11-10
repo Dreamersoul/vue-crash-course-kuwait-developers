@@ -1,43 +1,33 @@
 <template>
   <div class="hello">
-    <div v-if="seen">Now you see me</div>
-    <div v-else>Now you can’t</div>
-    <button v-on:click="toggleSeen">Toggle seen</button>
-
+    <h1>My List</h1>
     <ol>
-      <li v-for="todo in todos">
-        {{ todo.text }}
-      </li>
+      <todo-item
+        v-for="item in todos"
+        v-bind:todo="item"
+        v-bind:key="item.id">
+      </todo-item>
     </ol>
-    <input v-model="newTodo" type="text" @keyup.enter="addTodo" placeholder="enter a todo and press enter to append it">
   </div>
 </template>
 
 <script>
+import TodoItem from './TodoItem.vue'
+
 export default {
   name: 'HelloWorld',
+  components: {
+    TodoItem
+  },
   data: function(){
     return {
-      newTodo: "",
-      seen: true,
       todos:[
-        {text: "todo No. 1"},
-        {text: "todo No. 2"},
-        {text: "todo No. 3"},
+        {id: 1, text: "todo No. 1"},
+        {id: 2, text: "todo No. 2"},
+        {id: 3, text: "todo No. 3"},
       ]
     }
   },
-  methods: {
-    toggleSeen(){
-      this.seen = !this.seen;
-    },
-    addTodo(){
-      if(this.newTodo){
-        this.todos.push({text: this.newTodo});
-        this.newTodo = "";
-      }
-    }
-  }
 }
 </script>
 
