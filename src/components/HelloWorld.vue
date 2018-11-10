@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <h1>{{ capitalizedMsg }}</h1>
     <input type="text" v-model="msg" />
   </div>
 </template>
@@ -11,6 +12,11 @@ export default {
   data: function(){
     return {
       msg: ""
+    }
+  },
+  computed: {
+    capitalizedMsg(){
+      return this.msg.toUpperCase();
     }
   }
 }
