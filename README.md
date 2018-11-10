@@ -1,5 +1,6 @@
-# hello-world
-
+# vue Crash Course 
+This was created for `Kuwait Developers` a local developer community located in Kuwait, we welcome everyone from every background [meetup link](https://www.meetup.com/Kuwait-Developers/).
+slides link: [link](https://docs.google.com/presentation/d/1OpPLbwl09QpKFlYJw4cy36hVSmh8zbz10iTh_I7kSoA/edit?usp=sharing)
 ## Project setup
 ```
 yarn install
@@ -24,6 +25,3 @@ yarn run test
 ```
 yarn run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
