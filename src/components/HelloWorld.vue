@@ -1,13 +1,15 @@
 <template>
   <div class="hello">
-    <span v-if="seen">Now you see me</span>
-    <span v-else>Now you can’t</span>
+    <div v-if="seen">Now you see me</div>
+    <div v-else>Now you can’t</div>
+    <button v-on:click="toggleSeen">Toggle seen</button>
 
     <ol>
       <li v-for="todo in todos">
         {{ todo.text }}
       </li>
     </ol>
+    <input v-model="newTodo" type="text" @keyup.enter="addTodo" placeholder="enter a todo and press enter to append it">
   </div>
 </template>
 
@@ -16,6 +18,7 @@ export default {
   name: 'HelloWorld',
   data: function(){
     return {
+      newTodo: "",
       seen: true,
       todos:[
         {text: "todo No. 1"},
@@ -24,6 +27,17 @@ export default {
       ]
     }
   },
+  methods: {
+    toggleSeen(){
+      this.seen = !this.seen;
+    },
+    addTodo(){
+      if(this.newTodo){
+        this.todos.push({text: this.newTodo});
+        this.newTodo = "";
+      }
+    }
+  }
 }
 </script>
 
@@ -36,6 +50,12 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   
+}
+input {
+      width: 30%;
+      padding: 12px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }
 ol {
   padding: 0px;
